@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TT___Tea_Timer"
         mc:Ignorable="d"
-        Title="TT - Tea Timer" Height="250" Width="600">
+        Title="TT - Tea Timer" Height="250" Width="600" Background="#FF1C1C1C">
     <Grid>
-        
+        <TextBlock x:Name="teatitle" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Текстовое поле 1" VerticalAlignment="Top" Height="43" Width="263" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="25"/>
+
+
+
     </Grid>
 </Window>

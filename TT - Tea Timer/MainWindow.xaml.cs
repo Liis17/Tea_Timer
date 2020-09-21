@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,20 @@ namespace TT___Tea_Timer
         public MainWindow()
         {
             InitializeComponent();
+            PreloadStart();
+        }
+
+        public void PreloadStart()
+        {
+            string a = Directory.GetCurrentDirectory() + "\\" + "teatitle.data";
+            if (File.Exists(a) == true)
+            {
+                teatitle.Text = File.ReadAllText(a);
+            }
+            else
+            {
+                teatitle.Text = "Чай остынет через:";
+            }
         }
     }
 }
