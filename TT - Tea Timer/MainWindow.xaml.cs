@@ -37,7 +37,7 @@ namespace TT___Tea_Timer
             Screen1Window();
             inputvalue.Focus();
         }
-
+         
         public void Screen1Window()
         {
             screen1.Visibility = Visibility.Visible;
