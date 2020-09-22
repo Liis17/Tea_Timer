@@ -40,18 +40,18 @@
 
         <Grid x:Name="screen1" Visibility="Hidden">
 
-            <TextBox x:Name="inputvalue" Margin="187,100,0,0" Text="0" MaxLength="5" MaxLines="1" PreviewTextInput="inputdata" TextAlignment="Center" Background="#FF383838" Foreground="White" BorderBrush="{x:Null}" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="45" HorizontalAlignment="Left" Width="218" Height="37" VerticalAlignment="Top"/>
-            <Button x:Name="timerstart" Content="Начать" Margin="192,154,0,0" Click="timerstart_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FF111111" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="20" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="213"/>
-            <TextBlock Margin="159,102,0,0" TextWrapping="NoWrap" Text="&gt;" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="40" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="23"/>
-            <TextBlock Margin="410,102,0,0" TextWrapping="NoWrap" Text="&lt;" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="40" HorizontalAlignment="Left" Width="23" Height="35" VerticalAlignment="Top"/>
-            <TextBlock Margin="41,34,0,0" TextWrapping="Wrap" Text="Введите время" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="55" TextAlignment="Center" HorizontalAlignment="Left" Width="499" Height="66" VerticalAlignment="Top"/>
+            <TextBox x:Name="inputvalue" Focusable="True" Margin="187,100,0,0" Text="" MaxLength="5" MaxLines="1" PreviewTextInput="inputdata" TextAlignment="Center" Background="#FF383838" Foreground="White" BorderBrush="{x:Null}" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="45" HorizontalAlignment="Left" Width="218" Height="37" VerticalAlignment="Top"/>
+            <Button x:Name="timerstart" Content="Начать" Margin="192,154,0,0" Click="timerstart_Click" BorderBrush="{x:Null}" Foreground="White" Background="#FF111111" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="20" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="213"/>
+            <TextBlock Margin="159,102,0,0" TextWrapping="NoWrap" Text="&gt;" Foreground="White" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="40" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="23"/>
+            <TextBlock Margin="410,102,0,0" TextWrapping="NoWrap" Text="&lt;" Foreground="White" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="40" HorizontalAlignment="Left" Width="23" Height="35" VerticalAlignment="Top"/>
+            <TextBlock Margin="41,34,0,0" TextWrapping="Wrap" Text="Введите время" Foreground="White" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="55" TextAlignment="Center" HorizontalAlignment="Left" Width="499" Height="66" VerticalAlignment="Top"/>
 
         </Grid>
 
         <Grid x:Name="screen2" Visibility="Visible">
 
-            <TextBlock x:Name="teatitle" Margin="10,32,10,0" TextWrapping="Wrap" Text="чай остынет через 11" VerticalAlignment="Top" Height="76" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="25" TextAlignment="Center"/>
-            <TextBlock x:Name="valuetime" Margin="10,113,10,0" TextWrapping="NoWrap" Text="10" Height="121" VerticalAlignment="Top" Foreground="White" FontFamily="/TT - Tea Timer;component/#Tomba2Full" FontSize="120" TextAlignment="Center"/>
+            <TextBlock x:Name="teatitle" Margin="10,32,10,0" TextWrapping="Wrap" Text="чай остынет через nodata" VerticalAlignment="Top" Height="76" Foreground="White" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="25" TextAlignment="Center"/>
+            <TextBlock x:Name="valuetime" Margin="10,113,10,0" TextWrapping="NoWrap" Text="nodata" Height="121" VerticalAlignment="Top" Foreground="White" FontFamily="/TeaTimer;component/#Tomba2Full" FontSize="120" TextAlignment="Center"/>
             <ProgressBar x:Name="progresstea" Margin="10,0,10,10" Height="10" VerticalAlignment="Bottom"/>
 
 

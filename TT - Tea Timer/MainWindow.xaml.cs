@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -23,12 +25,17 @@ namespace TT___Tea_Timer
         public int value = 0;
 
         DispatcherTimer timemachine = new DispatcherTimer();
+        DispatcherTimer timemachinealarms = new DispatcherTimer();
+        DispatcherTimer timemachinealarmscolor = new DispatcherTimer();
+
+        public bool alarmred = false;
 
         public MainWindow()
         {
             InitializeComponent();
             PreloadStart();
             Screen1Window();
+            inputvalue.Focus();
         }
 
         public void Screen1Window()
@@ -49,10 +56,17 @@ namespace TT___Tea_Timer
 
         public void PreloadStart()
         {
+            if (File.Exists("C:\\Windows\\Media\\Windows Unlock.wav") == false)
+            {
+                MessageBox.Show("Как так то? Как можно было потерять системный файл??? Найди его, а потом вернись!", "Файл звука для уведомления не найден!");
+                Process.GetCurrentProcess().Kill();
+            }
+
             string a = Directory.GetCurrentDirectory() + "\\" + "teatitle.data";
-            string b = File.ReadAllText(a);
+            
             if (File.Exists(a) == true)
             {
+                string b = File.ReadAllText(a);
                 if (b == "")
                 {
                     MessageBox.Show("Файл Teatitle пуст", "Ошибка");
@@ -92,25 +106,33 @@ namespace TT___Tea_Timer
 
         public void FinishNotification()
         {
-            MessageBox.Show("уведомление");
+            AlarmsTimer();
+            teatitle.Text = "Чай остыл!";
+            //SystemSounds.Hand.Play();
+            //MessageBox.Show("уведомление");
+            //SystemSounds.Asterisk.Play();
         }
 
         private void timerstart_Click(object sender, RoutedEventArgs e)
         {
             Screen2Window();
-
-            value = int.Parse(inputvalue.Text);
+            try
+            {
+                value = int.Parse(inputvalue.Text);
+            }
+            catch
+            {
+                value = 0;
+            }
+            
 
             if (value <= 0)
             {
-                MessageBox.Show("Значение меньше или равно нулю" + "\n" + "Установлено значение 25", "Ошибка");
+                MessageBox.Show("Значение равно нулю" + "\n" + "Установлено значение 25", "Ошибка");
                 value = 25;
             }
-            else
-            {
-                valuetime.Text = value + "";
-            }
-            
+
+            valuetime.Text = value + "";
 
             progresstea.Value = 0;
             progresstea.Maximum = value;
@@ -122,6 +144,37 @@ namespace TT___Tea_Timer
         private void inputdata(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !(Char.IsDigit(e.Text, 0));
+        }
+
+        public void AlarmsTimer()
+        {
+            timemachinealarms.Interval = TimeSpan.FromMilliseconds(1000);
+            timemachinealarms.Tick += Alarms;
+            timemachinealarms.Start();
+
+            timemachinealarmscolor.Interval = TimeSpan.FromMilliseconds(250);
+            timemachinealarmscolor.Tick += ColorSwith;
+            timemachinealarmscolor.Start();
+        }
+
+        public void Alarms(object sender, EventArgs e)
+        {
+            SoundPlayer sound = new SoundPlayer("C:\\Windows\\Media\\Windows Unlock.wav");
+            sound.Play();
+        }
+
+        public void ColorSwith(object sender, EventArgs e)
+        {
+            if (alarmred == true)
+            {
+                valuetime.Foreground = Brushes.Red;
+                alarmred = false;
+            }
+            else if (alarmred == false)
+            {
+                alarmred = true;
+                valuetime.Foreground = Brushes.White;
+            }
         }
     }
 }
