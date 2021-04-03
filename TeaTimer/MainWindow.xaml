@@ -6,9 +6,38 @@
         xmlns:local="clr-namespace:TeaTimer"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        
-        Title="MainWindow" Height="450" Width="800">
+        WindowState="Normal"
+        WindowStyle="ToolWindow"
+        ResizeMode="CanMinimize"
+        ShowInTaskbar="False"
+        Title="Чайный таймер" Height="450" Width="800" Background="#FF171717">
+    <!--#region ресурсы-->
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="brdr" TextBlock.Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        </Style>
+    </Window.Resources>
+    <!--#endregion-->
     <Grid>
-
+        
     </Grid>
 </Window>
