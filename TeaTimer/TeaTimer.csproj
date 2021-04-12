@@ -6,6 +6,14 @@
     <UseWPF>true</UseWPF>
     <Configurations>Debug;Release;a</Configurations>
     <Platforms>AnyCPU;x86</Platforms>
+    <StartupObject>TeaTimer.App</StartupObject>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
