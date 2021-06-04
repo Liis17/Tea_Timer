@@ -11,18 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace TeaTimer
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для Normal_Mode.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Normal_Mode : Window
     {
-        public MainWindow()
+        public Normal_Mode()
         {
             InitializeComponent();
         }
@@ -40,7 +38,7 @@ namespace TeaTimer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            mWindow.WindowState = WindowState.Minimized;
+            nmWindow.WindowState = WindowState.Minimized;
         } // сворачивает окно
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -54,17 +52,5 @@ namespace TeaTimer
                 MessageBox.Show("Проблема, действие не может быть выполнено!", "Хмм, и почему оно все еще не работает, раньше работало...");
             }
         } //пытается открыть тг
-
-        private void NormalMode(object sender, RoutedEventArgs e)
-        {
-            Window nmw = new Normal_Mode();
-            nmw.Show();
-            mWindow.Close();
-        }
-
-        private void Eblan_Mode(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Еще в разработке");
-        }
     }
 }
